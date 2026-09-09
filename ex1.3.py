@@ -12,7 +12,7 @@ def showStruct(mat):
     print("List of edges: ")
     for i in range(nbNodes):
         for j in range(nbNodes):
-            if (mat[i][j] == 1):
+            if (mat[i] <= mat[j] and mat[i][j] == 1):
                 print("v" + str(i) + "-- v" + str(j) + " ")
 
 showStruct(graph)
