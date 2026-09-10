@@ -3,7 +3,6 @@ graph={0:[1,2],1:[0,2],2:[0,1]}
 #Each key represent a node, its value is the list of its neighbors
 
 def showStruct(dic):
-    nbNodes=len(dic) #nombre de clés
     print("Nodes :")
     for node in dic.keys(): #dic.keys() donne la liste des clés de dic, donc la liste des noeuds
         print("v"+str(node),end=" ")
