@@ -39,3 +39,23 @@ def isSimpleChain(dic, list_nodes):
             return False
         aretes.append((v1, v2))
     return True 
+
+
+def isGraphFull(dic):
+    n = len(dic)
+    for node in dic: #pour chaque noeud du graphe, on verifie si le nombre de voisins est égal à n-1 (car un noeud ne peut pas etre voisin de lui meme)
+        if len(dic[node]) != n-1: # si le nombre de voisins d'un noeud est different de n-1, alors le graphe n'est pas complet
+            return False
+    return True
+
+
+def isGraphFull2(dic):
+    n = len(dic)
+    for i in dic.keys(): 
+        if not len(dic[i]) == n-1: 
+            return False
+    return True
+
+
+
+def isGraphBipartite(dic)
