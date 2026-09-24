@@ -58,4 +58,16 @@ def isGraphFull2(dic):
 
 
 
+def degre(dic, v):
+    return len(dic[v])
+
+def isFull(dic):
+    nbNodes = len(dic)
+    for node in range(nbNodes):
+        if len(dic[node]) != nbNodes-1:
+            return False
+    return True
+
+def 
+    
 def isGraphBipartite(dic)
