@@ -68,6 +68,21 @@ def isFull(dic):
             return False
     return True
 
-def 
+def infoGraphFull(dic):
+    if not isFull(dic):
+        return "Le graphe n'est pas complet"
+    else:
+        n = len(dic)
+        print("nombre de noeuds", n)
+        print("degré : ", n-1)
+        nbAretes = n*(n-1)/2
+        print("nombre d'arêtes : ", nbAretes)
     
-def isGraphBipartite(dic)
+def isGraphBipartite(dic):
+    p1 = [0]
+    p2 = []
+    for i in range(1, len(dic)): #boucle pour parcourir tous les sommets du graphe à partir du sommet 1
+        if estVoisin(i, 0, dic):
+            p2.append(i)
+        else:
+            p1.append(i)
