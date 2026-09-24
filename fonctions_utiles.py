@@ -79,10 +79,22 @@ def infoGraphFull(dic):
         print("nombre d'arêtes : ", nbAretes)
     
 def isGraphBipartite(dic):
-    p1 = [0]
-    p2 = []
-    for i in range(1, len(dic)): #boucle pour parcourir tous les sommets du graphe à partir du sommet 1
-        if estVoisin(i, 0, dic):
-            p2.append(i)
-        else:
-            p1.append(i)
+    tables = {} 
+
+    for sommet_depart in dic:
+        if sommet_depart not in tables:
+            tables[sommet_depart] = 0
+            a_traiter = [sommet_depart] 
+
+            while len(a_traiter) > 0:
+                sommet_actuel = a_traiter.pop(0)
+
+                for voisin in dic[sommet_actuel]:
+                    if voisin not in tables:
+                        tables[voisin] = 1 - tables[sommet_actuel]
+                        a_traiter.append(voisin)
+                    
+                    elif tables[voisin] == tables[sommet_actuel]:
+                        return False 
+
+    return True
