@@ -5,18 +5,18 @@ def add_edge(graph, u, v, w):
     graph.append([u, v, w])
 
 
-# --- 2. TROUVER LE CHEF D'UN GROUPE (RÉCURSION) ---
 def find_parent(parent, i):
-    # CAS DE BASE : si la ville 'i' dit "mon chef, c'est moi-même",
-    # alors on a atteint le sommet de la pyramide (la racine). On renvoie 'i'.
+    # Condition d'arrêt (point fixe) :
+    # Un sommet 'i' est la racine de sa composante connexe si et seulement si
+    # la table de routage indique qu'il pointe vers lui-même (parent[i] == i).
     if parent[i] == i:
         return i
     
-    # CAS RÉCURSIF : sinon, 'i' n'est pas le chef, il obéit à quelqu'un d'autre.
-    # On rappelle la fonction pour demander à son supérieur : "qui est TON chef ?"
-    # Dans la mémoire : Python empile cet appel jusqu'à trouver le chef suprême.
+    # Étape de descente (ou plutôt de remontée dans l'arborescence) :
+    # Si 'i' n'est pas une racine, parent[i] contient l'identifiant de son ascendant direct.
+    # On empile un nouvel appel récursif sur parent[i] pour continuer la traversée. 
+    # Complexité pire cas : O(h), où h est la hauteur de la branche (dégénérescence possible en O(V)).
     return find_parent(parent, parent[i])
-
 
 # --- 3. FUSIONNER DEUX GROUPES ---
 def union(parent, rank, x, y):
