@@ -9,15 +9,18 @@ graph = {0:[2,5],
 
 
 def DFS(graph, node):
-    if visited== FALSE:
-        for i in graph.keys():
-            print("noeud", i, "visité\n")
-            visited = TRUE
+    visited = []
 
-    elif visited==TRUE:
-        DFS(graph, node)
+    if node not in visited:
+        visited.append(node)
+        print(node, end=" ")
+
+        for neighbour in graph[node]:
+            if neighbour is not None:
+                DFS(graph, neighbour)
     
     
 
 
 DFS(graph, 0)
+
