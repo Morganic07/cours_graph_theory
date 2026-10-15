@@ -18,7 +18,8 @@ def DFS(graph, node):
         for neighbour in graph[node]:
             if neighbour is not None:
                 DFS(graph, neighbour)
-    
+    else:
+        return 
     
 
 
